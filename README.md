@@ -7,7 +7,7 @@ Scripts used to build the contents of the [GoCD Trial repository](https://github
 ### To build locally:
 
 ```
-bundle install
+bundle install --path .bundle
 ./build
 ```
 
@@ -17,7 +17,7 @@ This creates a directory called `output` which brings together the `template` an
 ### To build and push changes up to the GoCD Trial repository:
 
 ```
-bundle install
+bundle install --path .bundle
 SSH_KEY_CONTENTS=... ./build push_changes
 ```
 
@@ -35,7 +35,7 @@ If you need to update the config-repo, then you can just edit the JSON/YAML file
 ##### Step 2: Build locally
 
 ```
-bundle install
+bundle install --path .bundle
 ./build
 ```
 
@@ -92,7 +92,7 @@ $ git commit -m "Updated JSON files and DB"
 ##### Step 7: (Optional) Verify your changes
 
 ```
-bundle install
+bundle install --path .bundle
 ./build
 cd output/
 docker-compose up -d
