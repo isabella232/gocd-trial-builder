@@ -1,43 +1,43 @@
-##|15:28:34.420 [go] Job Started: 2018-10-25 15:28:34 GMT
-##|15:28:34.420 
-pr|15:28:34.420 [go] Start to prepare build_test/1/build_test_build_stage/1/build_test_job on b9966cb033e5 [/go]
-pr|15:28:34.453 [go] Start to update materials.
-pr|15:28:34.453 
-pr|15:28:34.461 [go] Start updating files at revision f0b4b392756bfe118a3a0f99c6f91520e0ffaaef from http://gitserver/git/repo1.git
-pe|15:28:34.485 STDERR: Cloning into '/go/pipelines/build_test'...
-pr|15:28:34.719 [GIT] Fetching changes
-pr|15:28:34.874 [GIT] Performing git gc
-pr|15:28:34.982 [GIT] Reset working directory pipelines/build_test
-pr|15:28:34.982 [GIT] Cleaning all unversioned files in working copy
-pr|15:28:35.196 [GIT] Cleaning submodule configurations in .git/config
-pr|15:28:35.302 [GIT] Updating working copy to revision f0b4b392756bfe118a3a0f99c6f91520e0ffaaef
-pr|15:28:35.307 HEAD is now at f0b4b39 Update scripts to afe91eb40b89542670bfbc7abea3d41bdb21479e
-pr|15:28:35.408 [GIT] Removing modified files in submodules
-pr|15:28:35.537 [GIT] Cleaning all unversioned files in working copy
-pr|15:28:35.746 [go] Done.
-pr|15:28:35.746 
-pr|15:28:35.750 [go] overriding environment variable 'GO_SERVER_URL' with value 'https://server:8154/go'
-pr|15:28:35.750 [go] setting environment variable 'GO_TRIGGER_USER' to value 'changes'
-pr|15:28:35.750 [go] setting environment variable 'GO_PIPELINE_NAME' to value 'build_test'
-pr|15:28:35.750 [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '1'
-pr|15:28:35.750 [go] setting environment variable 'GO_PIPELINE_LABEL' to value '1'
-pr|15:28:35.750 [go] setting environment variable 'GO_STAGE_NAME' to value 'build_test_build_stage'
-pr|15:28:35.750 [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'
-pr|15:28:35.750 [go] setting environment variable 'GO_JOB_NAME' to value 'build_test_job'
-pr|15:28:35.751 [go] setting environment variable 'GO_REVISION' to value 'f0b4b392756bfe118a3a0f99c6f91520e0ffaaef'
-pr|15:28:35.751 [go] setting environment variable 'GO_TO_REVISION' to value 'f0b4b392756bfe118a3a0f99c6f91520e0ffaaef'
-pr|15:28:35.751 [go] setting environment variable 'GO_FROM_REVISION' to value 'f0b4b392756bfe118a3a0f99c6f91520e0ffaaef'
-pr|15:28:35.751 [go] setting environment variable 'GO_MATERIAL_HAS_CHANGED' to value 'true'
-pr|15:28:35.751 [go] setting environment variable 'TEST_NUM' to value ''
-pr|15:28:35.751 
-##|15:28:35.781 [go] Start to build build_test/1/build_test_build_stage/1/build_test_job on b9966cb033e5 [/go]
-!!|15:28:35.783 [go] Task: ls
-&1|15:28:35.803 acceptance_tests.gopipeline.json
-&1|15:28:35.804 build_test.gopipeline.json
-&1|15:28:35.804 deploy.gopipeline.json
-&1|15:28:35.804 performance_tests.gopipeline.json
-?0|15:28:35.915 [go] Task status: passed (123 ms)
-j0|15:28:35.945 [go] Current job status: passed
-##|15:28:35.962 [go] Start to create properties build_test/1/build_test_build_stage/1/build_test_job on b9966cb033e5 [/go]
-ar|15:28:35.962 [go] Start to upload build_test/1/build_test_build_stage/1/build_test_job on b9966cb033e5 [/go]
-ex|15:28:36.193 [go] Job completed build_test/1/build_test_build_stage/1/build_test_job on b9966cb033e5 [/go]
+##|18:07:52.660 [go] Job Started: 2018-10-25 18:07:52 GMT
+##|18:07:52.660 
+pr|18:07:52.661 [go] Start to prepare build_test/1/build_test_build_stage/1/build_test_job on cf19e35953e5 [/go]
+pr|18:07:52.695 [go] Start to update materials.
+pr|18:07:52.695 
+pr|18:07:52.701 [go] Start updating files at revision 6967d91c89444ee1c0f6bea25f3fd79082b40cfa from http://gitserver/git/repo1.git
+pe|18:07:52.730 STDERR: Cloning into '/go/pipelines/build_test'...
+pr|18:07:52.970 [GIT] Fetching changes
+pr|18:07:53.139 [GIT] Performing git gc
+pr|18:07:53.248 [GIT] Reset working directory pipelines/build_test
+pr|18:07:53.248 [GIT] Cleaning all unversioned files in working copy
+pr|18:07:53.464 [GIT] Cleaning submodule configurations in .git/config
+pr|18:07:53.573 [GIT] Updating working copy to revision 6967d91c89444ee1c0f6bea25f3fd79082b40cfa
+pr|18:07:53.578 HEAD is now at 6967d91 Update scripts to 2c67f6a535dac8e4c98fb4fd8c8fdc6d14428928
+pr|18:07:53.687 [GIT] Removing modified files in submodules
+pr|18:07:53.816 [GIT] Cleaning all unversioned files in working copy
+pr|18:07:54.031 [go] Done.
+pr|18:07:54.031 
+pr|18:07:54.034 [go] overriding environment variable 'GO_SERVER_URL' with value 'https://server:8154/go'
+pr|18:07:54.035 [go] setting environment variable 'GO_TRIGGER_USER' to value 'changes'
+pr|18:07:54.035 [go] setting environment variable 'GO_PIPELINE_NAME' to value 'build_test'
+pr|18:07:54.035 [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '1'
+pr|18:07:54.035 [go] setting environment variable 'GO_PIPELINE_LABEL' to value '1'
+pr|18:07:54.035 [go] setting environment variable 'GO_STAGE_NAME' to value 'build_test_build_stage'
+pr|18:07:54.035 [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'
+pr|18:07:54.035 [go] setting environment variable 'GO_JOB_NAME' to value 'build_test_job'
+pr|18:07:54.035 [go] setting environment variable 'GO_REVISION' to value '6967d91c89444ee1c0f6bea25f3fd79082b40cfa'
+pr|18:07:54.036 [go] setting environment variable 'GO_TO_REVISION' to value '6967d91c89444ee1c0f6bea25f3fd79082b40cfa'
+pr|18:07:54.036 [go] setting environment variable 'GO_FROM_REVISION' to value '6967d91c89444ee1c0f6bea25f3fd79082b40cfa'
+pr|18:07:54.036 [go] setting environment variable 'GO_MATERIAL_HAS_CHANGED' to value 'true'
+pr|18:07:54.036 [go] setting environment variable 'TEST_NUM' to value ''
+pr|18:07:54.036 
+##|18:07:54.061 [go] Start to build build_test/1/build_test_build_stage/1/build_test_job on cf19e35953e5 [/go]
+!!|18:07:54.065 [go] Task: ls
+&1|18:07:54.090 acceptance_tests.gopipeline.json
+&1|18:07:54.091 build_test.gopipeline.json
+&1|18:07:54.092 deploy.gopipeline.json
+&1|18:07:54.092 performance_tests.gopipeline.json
+?0|18:07:54.197 [go] Task status: passed (125 ms)
+j0|18:07:54.245 [go] Current job status: passed
+##|18:07:54.261 [go] Start to create properties build_test/1/build_test_build_stage/1/build_test_job on cf19e35953e5 [/go]
+ar|18:07:54.261 [go] Start to upload build_test/1/build_test_build_stage/1/build_test_job on cf19e35953e5 [/go]
+ex|18:07:54.427 [go] Job completed build_test/1/build_test_build_stage/1/build_test_job on cf19e35953e5 [/go]

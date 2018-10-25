@@ -56,14 +56,16 @@ task 'package_config_repo_files_into_bare_repo' do
   repo_name             = 'repo1.git'
   git_sha               = %x{git rev-parse HEAD}.strip
 
-  mkdir_p repo_dir
-  Dir.chdir repo_dir do
-    sh "git init --bare #{repo_name}"
-    Dir.chdir repo_name do
-      sh 'git config http.receivepack true'
+  # Fetch the bare repo from upstream gocd-trial repository.
+  Dir.mktmpdir do |tmpdir|
+    Dir.chdir tmpdir do
+      sh "git clone https://github.com/gocd/gocd-trial.git gocd-trial"
+      mkdir_p repo_dir
+      cp_r 'gocd-trial/repositories/repo1.git', File.join(repo_dir, 'repo1.git')
     end
   end
 
+  # Update with new config-repo changes, if any.
   Dir.mktmpdir nil, "output" do |tmpdir|
     Dir.chdir tmpdir do
       sh "git clone #{File.join(repo_dir, repo_name)} repo1-clone"
@@ -71,8 +73,8 @@ task 'package_config_repo_files_into_bare_repo' do
 
       Dir.chdir 'repo1-clone' do
         sh 'git add .'
-        sh "git commit -m 'Update scripts to #{git_sha}'"
-        sh 'git push origin master'
+        sh "git commit -m 'Update scripts to #{git_sha}' || true"
+        sh 'git push origin master || true'
       end
     end
   end
