@@ -295,7 +295,7 @@ git push
 ```
 If you return to http://localhost:8153 you will see that the pipeline "deploy" now has three stages.
 
-Also as the the build_test pipeline has been configured to use this repository as the [material](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html) you will also that the pipelines are now running.
+Also as the build_test pipeline has been configured to use this repository as the [material](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html) you will also that the other pipelines are now running.
 
 # Next steps
 
