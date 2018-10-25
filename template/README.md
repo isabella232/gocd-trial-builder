@@ -9,24 +9,24 @@ Table of Contents
   * [Use GoCD](#use-gocd)
   * [Next steps](#next-steps)
   * [Shutdown](#shutdown)
-  * [License](#license) 
- 
-# How to use 
+  * [License](#license)
 
-This trial is intended to be used to quickly and easily try out GoCD. It is *not* intended for production use. 
+# How to use
 
-Once you start the GoCD trial it will show you example pipelines as well as execution data and value stream maps. You will also be able to edit the configuration and run builds. 
+This trial is intended to be used to quickly and easily try out GoCD. It is *not* intended for production use.
 
-Use this trial in combination with the [GoCD documentation](https://www.gocd.org/getting-started/part-1/) to understand more about GoCD's capabilities. 
+Once you start the GoCD trial it will show you example pipelines as well as execution data and value stream maps. You will also be able to edit the configuration and run builds.
+
+Use this trial in combination with the [GoCD documentation](https://www.gocd.org/getting-started/part-1/) to understand more about GoCD's capabilities.
 
 If you need support while trying GoCD feel free chat to us on [Gitter](https://gitter.im/gocd/gocd) or join our [Google Group](https://groups.google.com/forum/#!forum/go-cd).
 
 # Dependencies
 
-* Install Git 
-* Install Docker 
-* Install Docker Compose 
-* Ensure that Docker is running 
+* Install Git
+* Install Docker
+* Install Docker Compose
+* Ensure that Docker is running
 
 # Installation
 
@@ -38,7 +38,7 @@ Clone the repo, by typing:
 git clone https://github.com/gocd/gocd-trial.git
 ```
 
-Navigate to the template directory, by typing: 
+Navigate to the template directory, by typing:
 
 ```
 cd gocd-trial
@@ -56,7 +56,7 @@ This starts 3 docker containers that are hosting:
 - GoCD agent
 - git server (which is hosting "repo1" that contains the GoCD config and materials for this trial)
 
-You will see: 
+You will see:
 
 
 ```
@@ -74,7 +74,7 @@ You may see a "starting" message, if so, wait a few minutes for the server and a
 
 # Use GoCD
 
-Now would be a good time to take a look at [Introduction to GoCD](https://www.gocd.org/getting-started/part-1/) to understand what you are looking at. 
+Now would be a good time to take a look at [Introduction to GoCD](https://www.gocd.org/getting-started/part-1/) to understand what you are looking at.
 
 ## Value stream map
 
@@ -86,7 +86,7 @@ You can make a change to the [materials](https://docs.gocd.org/current/introduct
 
 Note: As these pipelines are configured using GoCD's [config as repo feature](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html), you won't be able to change the material configuration from the GoCD dashboard. You will need to change the materials by changing the config in the repo. Refer to [updating the configuration](https://github.com/gocd/gocd-trial#update-the-configuration) if you would like to do this.
 
-To run builds first checkout the material repository, by typing: 
+To run builds first checkout the material repository, by typing:
 
 ```
 cd gocd-trial
@@ -112,14 +112,14 @@ git commit -m "first commit"
 ```
 git push
 ```
-Once you push the commit, you will see "build_test" pipeline gets triggered and start building. Later, all the other downstream pipelines will get trigger as they are to configured as [pipeline dependencies](https://docs.gocd.org/current/configuration/managing_dependencies.html). 
+Once you push the commit, you will see "build_test" pipeline gets triggered and start building. Later, all the other downstream pipelines will get trigger as they are to configured as [pipeline dependencies](https://docs.gocd.org/current/configuration/managing_dependencies.html).
 
 
 ## Update the configuration
 
-The GoCD server has been configured using GoCD's [config as repo feature](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html). The configuration is located in this repository. 
+The GoCD server has been configured using GoCD's [config as repo feature](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html). The configuration is located in this repository.
 
-To update the configuration, navigate to the repo, by typing: 
+To update the configuration, navigate to the repo, by typing:
 
 ```
 cd gocd-trial
@@ -128,73 +128,71 @@ cd gocd-trial
 cd repo1
 ```
 
-Then open the configuration file, by typing: 
+Then open the configuration file, by typing:
 
 ```
 open deploy.gopipeline.json
 ```
-Change the configuration and to add a new stage to the deploy pipeline, by changing: 
+Change the configuration and to add a new stage to the deploy pipeline, by changing:
 
 ```javascript
-
- "stages": [
-    {
-      "name": "ready_to_deploy_stage",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
-      "clean_working_directory": false,
-      "environment_variables": [],
-      "jobs": [
-        {
-          "name": "ready_to_deploy_job",
-          "environment_variables": [],
-          "tabs": [],
-          "resources": [],
-          "artifacts": [],
-          "properties": [],
-          "run_instance_count": null,
-          "timeout": 0,
-          "tasks": [
-            {
-              "type": "exec",
-              "command": "ls"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "deploy_stage",
-      "fetch_materials": true,
-      "never_cleanup_artifacts": false,
-      "clean_working_directory": false,
-      "environment_variables": [],
-      "approval": {
-        "type": "manual",
-        "roles": [],
-        "users": []
-      },
-      "jobs": [
-        {
-          "name": "deploy_job",
-          "environment_variables": [],
-          "tabs": [],
-          "resources": [],
-          "artifacts": [],
-          "properties": [],
-          "run_instance_count": null,
-          "timeout": 0,
-          "tasks": [
-            {
-              "type": "exec",
-              "command": "ls"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-
+"stages": [
+   {
+     "name": "ready_to_deploy_stage",
+     "fetch_materials": true,
+     "never_cleanup_artifacts": false,
+     "clean_working_directory": false,
+     "environment_variables": [],
+     "jobs": [
+       {
+         "name": "ready_to_deploy_job",
+         "environment_variables": [],
+         "tabs": [],
+         "resources": [],
+         "artifacts": [],
+         "properties": [],
+         "run_instance_count": null,
+         "timeout": 0,
+         "tasks": [
+           {
+             "type": "exec",
+             "command": "ls"
+           }
+         ]
+       }
+     ]
+   },
+   {
+     "name": "deploy_stage",
+     "fetch_materials": true,
+     "never_cleanup_artifacts": false,
+     "clean_working_directory": false,
+     "environment_variables": [],
+     "approval": {
+       "type": "manual",
+       "roles": [],
+       "users": []
+     },
+     "jobs": [
+       {
+         "name": "deploy_job",
+         "environment_variables": [],
+         "tabs": [],
+         "resources": [],
+         "artifacts": [],
+         "properties": [],
+         "run_instance_count": null,
+         "timeout": 0,
+         "tasks": [
+           {
+             "type": "exec",
+             "command": "ls"
+           }
+         ]
+       }
+     ]
+   }
+ ]
 ```
 
 to be:
@@ -282,10 +280,9 @@ to be:
       ]
     }
   ]
- 
 ```
 
-Return to terminal, type: 
+Return to terminal, type:
 
 ```
 git add deploy.gopipeline.json
@@ -296,17 +293,17 @@ git commit -m "updated configuration"
 ```
 git push
 ```
-If you return to http://localhost:8153 you will see that the pipeline "deploy" now has three stages. 
+If you return to http://localhost:8153 you will see that the pipeline "deploy" now has three stages.
 
-Also as the the build_test pipeline has been configured to use this repository as the [material](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html) you will also that the pipelines are now running. 
+Also as the the build_test pipeline has been configured to use this repository as the [material](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html) you will also that the pipelines are now running.
 
 # Next steps
 
-This GoCD trial has given you a quick, yet limited introduction to GoCD. 
+This GoCD trial has given you a quick, yet limited introduction to GoCD.
 
-If you would like to understand more about the capabilities of GoCD and try them out on your own project we recommend downloading and [installing GoCD](https://www.gocd.org/download) and following our complete [introduction](https://www.gocd.org/getting-started/part-1/) to getting up your own GoCD server. 
+If you would like to understand more about the capabilities of GoCD and try them out on your own project we recommend downloading and [installing GoCD](https://www.gocd.org/download) and following our complete [introduction](https://www.gocd.org/getting-started/part-1/) to getting up your own GoCD server.
 
-Note: If you did make changes to the trial configuration that you would like to retain and use on your local server please copy the .json files from ../repo1 to your new local server. 
+Note: If you did make changes to the trial configuration that you would like to retain and use on your local server please copy the .json files from ../repo1 to your new local server.
 
 # Shutdown
 
