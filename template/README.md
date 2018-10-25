@@ -303,7 +303,7 @@ This GoCD trial has given you a quick, yet limited introduction to GoCD.
 
 If you would like to understand more about the capabilities of GoCD and try them out on your own project we recommend downloading and [installing GoCD](https://www.gocd.org/download) and following our complete [introduction](https://www.gocd.org/getting-started/part-1/) to getting up your own GoCD server.
 
-Note: If you did make changes to the trial configuration that you would like to retain and use on your local server please copy the .json files from ../repo1 to your new local server.
+Note: If you did make changes to the trial configuration that you would like to retain and use on your local server please configure your local server to use the [config as repo](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html) feature and copy the .json files from the repo1 created as part of the trial to your own repo.
 
 # Shutdown
 
