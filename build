@@ -87,7 +87,7 @@ task :push_changes => [:default] do
 
   Dir.mktmpdir do |tmpdir|
     Dir.chdir tmpdir do
-      sh "GIT_SSH='#{BASE_PATH}/script-support/ssh-command' git clone git@github.com:arvindsv/gocd-trial.git gocd-trial"
+      sh "GIT_SSH='#{BASE_PATH}/script-support/ssh-command' git clone git@github.com:gocd/gocd-trial.git gocd-trial"
 
       Dir.chdir 'gocd-trial' do
         rm_rf '*'
