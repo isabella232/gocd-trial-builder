@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="113">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="agent-autoregister-key" commandRepositoryLocation="default">
+    <backup emailOnSuccess="true" emailOnFailure="true" />
+  </server>
+  <config-repos>
+    <config-repo pluginId="json.config.plugin" id="demo-config-repo">
+      <git url="http://gitserver/git/repo1.git" />
+    </config-repo>
+  </config-repos>
+  <pipelines group="Build_and_Deploy" />
+</cruise>
