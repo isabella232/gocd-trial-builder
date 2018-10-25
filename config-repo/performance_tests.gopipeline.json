@@ -1,0 +1,46 @@
+{
+  "format_version" : 1,
+  "name": "performance_tests",
+  "environment_variables": [
+    {
+      "name": "TEST_NUM"
+    }
+  ],
+  "group" : "Build_and_Deploy",
+  "materials": [
+    {
+      "pipeline": "build_test",
+      "stage": "build_test_build_stage",
+      "name": "dependency_2",
+      "type": "dependency"
+    }
+  ],
+  "stages": [
+    {
+      "name": "performance_tests_build_stage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "performance_tests_build_job",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "command": "ls"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

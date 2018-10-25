@@ -1,0 +1,28 @@
+##|15:29:37.075 [go] Job Started: 2018-10-25 15:29:37 GMT
+##|15:29:37.075 
+pr|15:29:37.075 [go] Start to prepare deploy/1/ready_to_deploy_stage/1/ready_to_deploy_job on b9966cb033e5 [/go]
+pr|15:29:37.092 [go] Start to update materials.
+pr|15:29:37.092 
+pr|15:29:37.093 [go] overriding environment variable 'GO_SERVER_URL' with value 'https://server:8154/go'
+pr|15:29:37.093 [go] setting environment variable 'GO_TRIGGER_USER' to value 'changes'
+pr|15:29:37.093 [go] setting environment variable 'GO_PIPELINE_NAME' to value 'deploy'
+pr|15:29:37.093 [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '1'
+pr|15:29:37.093 [go] setting environment variable 'GO_PIPELINE_LABEL' to value '1'
+pr|15:29:37.093 [go] setting environment variable 'GO_STAGE_NAME' to value 'ready_to_deploy_stage'
+pr|15:29:37.093 [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'
+pr|15:29:37.093 [go] setting environment variable 'GO_JOB_NAME' to value 'ready_to_deploy_job'
+pr|15:29:37.093 [go] setting environment variable 'GO_DEPENDENCY_LABEL_DEPENDENCY_3' to value '1'
+pr|15:29:37.093 [go] setting environment variable 'GO_DEPENDENCY_LOCATOR_DEPENDENCY_3' to value 'acceptance_tests/1/acceptance_tests_build_stage/1'
+pr|15:29:37.093 [go] setting environment variable 'GO_MATERIAL_DEPENDENCY_3_HAS_CHANGED' to value 'true'
+pr|15:29:37.093 [go] setting environment variable 'GO_DEPENDENCY_LABEL_DEPENDENCY_4' to value '1'
+pr|15:29:37.093 [go] setting environment variable 'GO_DEPENDENCY_LOCATOR_DEPENDENCY_4' to value 'performance_tests/1/performance_tests_build_stage/1'
+pr|15:29:37.093 [go] setting environment variable 'GO_MATERIAL_DEPENDENCY_4_HAS_CHANGED' to value 'true'
+pr|15:29:37.093 [go] setting environment variable 'TEST_NUM' to value ''
+pr|15:29:37.093 
+##|15:29:37.117 [go] Start to build deploy/1/ready_to_deploy_stage/1/ready_to_deploy_job on b9966cb033e5 [/go]
+!!|15:29:37.117 [go] Task: ls
+?0|15:29:37.230 [go] Task status: passed (113 ms)
+j0|15:29:37.252 [go] Current job status: passed
+##|15:29:37.262 [go] Start to create properties deploy/1/ready_to_deploy_stage/1/ready_to_deploy_job on b9966cb033e5 [/go]
+ar|15:29:37.262 [go] Start to upload deploy/1/ready_to_deploy_stage/1/ready_to_deploy_job on b9966cb033e5 [/go]
+ex|15:29:37.337 [go] Job completed deploy/1/ready_to_deploy_stage/1/ready_to_deploy_job on b9966cb033e5 [/go]

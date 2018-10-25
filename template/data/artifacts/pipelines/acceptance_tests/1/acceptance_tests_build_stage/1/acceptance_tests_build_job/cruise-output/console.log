@@ -1,0 +1,25 @@
+##|15:29:16.704 [go] Job Started: 2018-10-25 15:29:16 GMT
+##|15:29:16.704 
+pr|15:29:16.704 [go] Start to prepare acceptance_tests/1/acceptance_tests_build_stage/1/acceptance_tests_build_job on b9966cb033e5 [/go]
+pr|15:29:16.718 [go] Start to update materials.
+pr|15:29:16.718 
+pr|15:29:16.718 [go] overriding environment variable 'GO_SERVER_URL' with value 'https://server:8154/go'
+pr|15:29:16.718 [go] setting environment variable 'GO_TRIGGER_USER' to value 'changes'
+pr|15:29:16.718 [go] setting environment variable 'GO_PIPELINE_NAME' to value 'acceptance_tests'
+pr|15:29:16.719 [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '1'
+pr|15:29:16.719 [go] setting environment variable 'GO_PIPELINE_LABEL' to value '1'
+pr|15:29:16.719 [go] setting environment variable 'GO_STAGE_NAME' to value 'acceptance_tests_build_stage'
+pr|15:29:16.719 [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'
+pr|15:29:16.719 [go] setting environment variable 'GO_JOB_NAME' to value 'acceptance_tests_build_job'
+pr|15:29:16.719 [go] setting environment variable 'GO_DEPENDENCY_LABEL_DEPENDENCY_1' to value '1'
+pr|15:29:16.719 [go] setting environment variable 'GO_DEPENDENCY_LOCATOR_DEPENDENCY_1' to value 'build_test/1/build_test_build_stage/1'
+pr|15:29:16.719 [go] setting environment variable 'GO_MATERIAL_DEPENDENCY_1_HAS_CHANGED' to value 'true'
+pr|15:29:16.719 [go] setting environment variable 'TEST_NUM' to value ''
+pr|15:29:16.719 
+##|15:29:16.740 [go] Start to build acceptance_tests/1/acceptance_tests_build_stage/1/acceptance_tests_build_job on b9966cb033e5 [/go]
+!!|15:29:16.740 [go] Task: ls
+?0|15:29:16.887 [go] Task status: passed (147 ms)
+j0|15:29:16.908 [go] Current job status: passed
+##|15:29:16.924 [go] Start to create properties acceptance_tests/1/acceptance_tests_build_stage/1/acceptance_tests_build_job on b9966cb033e5 [/go]
+ar|15:29:16.924 [go] Start to upload acceptance_tests/1/acceptance_tests_build_stage/1/acceptance_tests_build_job on b9966cb033e5 [/go]
+ex|15:29:16.998 [go] Job completed acceptance_tests/1/acceptance_tests_build_stage/1/acceptance_tests_build_job on b9966cb033e5 [/go]

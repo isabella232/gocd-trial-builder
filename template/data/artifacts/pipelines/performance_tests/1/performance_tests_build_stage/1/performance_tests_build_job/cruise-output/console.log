@@ -1,0 +1,25 @@
+##|15:28:56.355 [go] Job Started: 2018-10-25 15:28:56 GMT
+##|15:28:56.355 
+pr|15:28:56.355 [go] Start to prepare performance_tests/1/performance_tests_build_stage/1/performance_tests_build_job on b9966cb033e5 [/go]
+pr|15:28:56.376 [go] Start to update materials.
+pr|15:28:56.376 
+pr|15:28:56.378 [go] overriding environment variable 'GO_SERVER_URL' with value 'https://server:8154/go'
+pr|15:28:56.378 [go] setting environment variable 'GO_TRIGGER_USER' to value 'changes'
+pr|15:28:56.379 [go] setting environment variable 'GO_PIPELINE_NAME' to value 'performance_tests'
+pr|15:28:56.379 [go] setting environment variable 'GO_PIPELINE_COUNTER' to value '1'
+pr|15:28:56.379 [go] setting environment variable 'GO_PIPELINE_LABEL' to value '1'
+pr|15:28:56.379 [go] setting environment variable 'GO_STAGE_NAME' to value 'performance_tests_build_stage'
+pr|15:28:56.379 [go] setting environment variable 'GO_STAGE_COUNTER' to value '1'
+pr|15:28:56.379 [go] setting environment variable 'GO_JOB_NAME' to value 'performance_tests_build_job'
+pr|15:28:56.379 [go] setting environment variable 'GO_DEPENDENCY_LABEL_DEPENDENCY_2' to value '1'
+pr|15:28:56.379 [go] setting environment variable 'GO_DEPENDENCY_LOCATOR_DEPENDENCY_2' to value 'build_test/1/build_test_build_stage/1'
+pr|15:28:56.379 [go] setting environment variable 'GO_MATERIAL_DEPENDENCY_2_HAS_CHANGED' to value 'true'
+pr|15:28:56.379 [go] setting environment variable 'TEST_NUM' to value ''
+pr|15:28:56.379 
+##|15:28:56.405 [go] Start to build performance_tests/1/performance_tests_build_stage/1/performance_tests_build_job on b9966cb033e5 [/go]
+!!|15:28:56.405 [go] Task: ls
+?0|15:28:56.507 [go] Task status: passed (102 ms)
+j0|15:28:56.533 [go] Current job status: passed
+##|15:28:56.546 [go] Start to create properties performance_tests/1/performance_tests_build_stage/1/performance_tests_build_job on b9966cb033e5 [/go]
+ar|15:28:56.546 [go] Start to upload performance_tests/1/performance_tests_build_stage/1/performance_tests_build_job on b9966cb033e5 [/go]
+ex|15:28:56.637 [go] Job completed performance_tests/1/performance_tests_build_stage/1/performance_tests_build_job on b9966cb033e5 [/go]

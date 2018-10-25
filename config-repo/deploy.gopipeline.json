@@ -1,0 +1,81 @@
+{
+  "format_version": 1,
+  "name": "deploy",
+  "environment_variables": [
+    {
+      "name": "TEST_NUM"
+    }
+  ],
+  "group": "Build_and_Deploy",
+  "materials": [
+    {
+      "pipeline": "acceptance_tests",
+      "stage": "acceptance_tests_build_stage",
+      "name": "dependency_3",
+      "type": "dependency"
+    },
+    {
+      "pipeline": "performance_tests",
+      "stage": "performance_tests_build_stage",
+      "name": "dependency_4",
+      "type": "dependency"
+    }
+  ],
+  "stages": [
+    {
+      "name": "ready_to_deploy_stage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "ready_to_deploy_job",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "command": "ls"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "deploy_stage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "approval": {
+        "type": "manual",
+        "roles": [],
+        "users": []
+      },
+      "jobs": [
+        {
+          "name": "deploy_job",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "command": "ls"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

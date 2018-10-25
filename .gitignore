@@ -1,0 +1,12 @@
+template/data/config/
+
+template/data/db/h2db/cruise.trace.db
+template/data/db/h2db/cruise.lock.db
+template/data/db/
+
+template/data/logs/
+
+template/data/plugins/bundled/
+template/data/plugins/go-plugins-all.zip
+
+output/

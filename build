@@ -1,0 +1,103 @@
+#!/usr/bin/env ruby
+
+if File.basename($PROGRAM_NAME) != 'rake'
+  require 'shellwords'
+  puts "bundle exec rake -f #{Shellwords.escape($PROGRAM_NAME)} #{Shellwords.shelljoin(ARGV)}"
+  exec "bundle exec rake -f #{Shellwords.escape($PROGRAM_NAME)} #{Shellwords.shelljoin(ARGV)}"
+end
+
+require 'nokogiri'
+
+SSH_KEY_CONTENTS = ENV['SSH_KEY_CONTENTS'] || 'UNKNOWN'
+
+task :default => [:setup, :remove_server_id_from_database, :ensure_clean_config, :ensure_no_extra_config_files, :package_config_repo_files_into_bare_repo]
+
+task :clean do
+  rm_rf 'output'
+end
+
+task :setup => [:clean] do
+  mkdir 'output'
+  cp_r 'template/.', 'output'
+end
+
+
+desc 'Remove server ID from database'
+task :remove_server_id_from_database do
+  sh 'java -cp lib/h2-1.3.168.jar org.h2.tools.RunScript -url "jdbc:h2:output/data/db/h2db/cruise" -user sa -script cleanup.sql -showResults'
+end
+
+
+desc 'Ensure no UUIDs/secrets in config XML'
+task :ensure_clean_config do
+  config = Nokogiri::XML(File.read('output/data/config/cruise-config.xml'))
+
+  allowed_attributes_at_server_level = ['agentAutoRegisterKey', 'artifactsdir', 'commandRepositoryLocation']
+  extra_attributes_at_server_level = config.at_xpath('/cruise/server').attributes.keys - allowed_attributes_at_server_level
+
+  raise "Found extra attributes at <server/> level in template/data/config/cruise.config.xml - Allowed attributes are: #{allowed_attributes_at_server_level}. Extra attributes are: #{extra_attributes_at_server_level}" unless extra_attributes_at_server_level.empty?
+
+  raise "Found <agents/> tag in template/data/config/cruise-config.xml. That is not allowed." unless config.at_xpath('/cruise/agents').nil?
+end
+
+
+desc 'Ensure no extra configuration files are checked-in'
+task :ensure_no_extra_config_files do
+  if Dir['output/data/config/*'] != ['output/data/config/cruise-config.xml']
+    raise "Only cruise-config.xml is expected in template/data/config/. Found: #{Dir['template/data/config/*']}"
+  end
+end
+
+
+desc 'Package up the config repository files into a bare repository'
+task 'package_config_repo_files_into_bare_repo' do
+  config_repo_files_dir = File.join Dir.pwd, 'config-repo'
+  repo_dir              = File.join Dir.pwd, 'output/repositories'
+  repo_name             = 'repo1.git'
+  git_sha               = %x{git rev-parse HEAD}.strip
+
+  mkdir_p repo_dir
+  Dir.chdir repo_dir do
+    sh "git init --bare #{repo_name}"
+    Dir.chdir repo_name do
+      sh 'git config http.receivepack true'
+    end
+  end
+
+  Dir.mktmpdir nil, "output" do |tmpdir|
+    Dir.chdir tmpdir do
+      sh "git clone #{File.join(repo_dir, repo_name)} repo1-clone"
+      cp_r config_repo_files_dir + '/.', 'repo1-clone'
+
+      Dir.chdir 'repo1-clone' do
+        sh 'git add .'
+        sh "git commit -m 'Update scripts to #{git_sha}'"
+        sh 'git push'
+      end
+    end
+  end
+end
+
+desc 'Push changes (in "output" dir) upstream to gocd-trial repo'
+task :push_changes => [:default] do
+  output_dir = File.join Dir.pwd, 'output'
+  git_sha    = %x{git rev-parse HEAD}.strip
+
+  Dir.mktmpdir do |tmpdir|
+    Dir.chdir tmpdir do
+      File.write 'ssh-key.rsa', SSH_KEY_CONTENTS
+      chmod 0600, 'ssh-key.rsa'
+
+      sh "GIT_SSH_COMMAND='ssh -i ssh-key.rsa' git clone git@github.com:arvindsv/gocd-trial.git"
+
+      Dir.chdir 'gocd-trial' do
+        rm_rf '*'
+        cp_r output_dir + '/.', '.'
+
+        sh 'git add .'
+        sh "git commit -m 'Update to #{git_sha}'"
+        sh 'GIT_SSH_COMMAND="ssh -i ssh-key.rsa" git push'
+      end
+    end
+  end
+end

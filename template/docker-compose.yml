@@ -1,0 +1,38 @@
+version: "3"
+services:
+  server:
+    image: gocd/gocd-server:v18.9.0
+
+    ports:
+      - "8153:8153"
+      - "8154:8154"
+
+    volumes:
+      - ./data:/godata
+      - ./data/home:/home/go
+
+    depends_on:
+      - "gitserver"
+
+  agent:
+    image: gocd/gocd-agent-alpine-3.8:v18.9.0
+
+    environment:
+      - GO_SERVER_URL=https://server:8154/go
+      - AGENT_AUTO_REGISTER_KEY=agent-autoregister-key
+
+    deploy:
+      replicas: 2
+
+    depends_on:
+      - "server"
+      - "gitserver"
+
+  gitserver:
+    image: gocdcontrib/git-http-backend:v2
+
+    ports:
+      - "8155:80"
+
+    volumes:
+      - ./repositories:/git

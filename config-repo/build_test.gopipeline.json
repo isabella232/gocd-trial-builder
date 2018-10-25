@@ -1,0 +1,44 @@
+{
+  "format_version" : 1,
+  "name": "build_test",
+  "environment_variables": [
+    {
+      "name": "TEST_NUM"
+    }
+                           ],
+  "group" : "Build_and_Deploy",
+  "materials": [
+    {
+      "url": "http://gitserver/git/repo1.git",
+      "type": "git"
+    }
+  ],
+  "stages": [
+    {
+      "name": "build_test_build_stage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "build_test_job",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [],
+          "properties": [],
+          "run_instance_count": null,
+          "timeout": 0,
+          "tasks": [
+            {
+              "type": "exec",
+              "command": "ls"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
