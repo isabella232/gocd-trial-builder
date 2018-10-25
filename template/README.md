@@ -296,7 +296,7 @@ git commit -m "updated configuration"
 ```
 git push
 ```
-If you return to  http://localhost:8153 you will see that the pipeline "deploy" now has two [manual stages](https://docs.gocd.org/current/configuration/dev_choose_when_stage_runs.html). 
+If you return to http://localhost:8153 you will see that the pipeline "deploy" now has three stages. 
 
 Also as the the build_test pipeline has been configured to use this repository as the [material](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html) you will also that the pipelines are now running. 
 
@@ -305,6 +305,8 @@ Also as the the build_test pipeline has been configured to use this repository a
 This GoCD trial has given you a quick, yet limited introduction to GoCD. 
 
 If you would like to understand more about the capabilities of GoCD and try them out on your own project we recommend downloading and [installing GoCD](https://www.gocd.org/download) and following our complete [introduction](https://www.gocd.org/getting-started/part-1/) to getting up your own GoCD server. 
+
+Note: If you did make changes to the trial configuration that you would like to retain and use on your local server please copy the .json files from ../repo1 to your new local server. 
 
 # Shutdown
 
