@@ -18,7 +18,7 @@ This creates a directory called `output` which brings together the `template` an
 
 ```
 bundle install --path .bundle
-SSH_KEY_CONTENTS=... ./build push_changes
+SSH_KEY_CONTENTS="$(base64 ssh-key.id.rsa)" ./build push_changes
 ```
 
 By providing the _contents_ of the SSH private key and calling the `push_changes` task, the `output` directory will again be generated and it will be pushed into the GoCD Trial repository as a new commit.

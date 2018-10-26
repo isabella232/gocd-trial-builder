@@ -5,5 +5,5 @@ cd $(dirname $0)
 tmp_ssh_key_file=$(mktemp)
 trap 'rm -f $tmp_ssh_key_file' EXIT QUIT INT ERR
 
-echo "$SSH_KEY_CONTENTS" >"$tmp_ssh_key_file"
+echo "$SSH_KEY_CONTENTS" | base64 -d >"$tmp_ssh_key_file"
 ssh -o BatchMode=yes -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i "$tmp_ssh_key_file" "$@"
