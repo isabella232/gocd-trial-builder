@@ -26,7 +26,28 @@ By providing the _contents_ of the SSH private key and calling the `push_changes
 The SSH private key needs to be a [GitHub deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) on the GoCD Trial repository.
 
 
-### To make changes:
+## Making changes
+
+What you want to look for is: You bring up the containers using `docker-compose up` and the GoCD server is stable. Meaning, it does not start building a pipeline or doing anything else. It should get you to a green set of pipelines as quickly as possible.
+
+
+### Upgrading the version of GoCD used:
+
+Just change the template/docker-compose.yaml and check in.
+
+Optionally, verify your changes
+
+```
+bundle install --path .bundle
+./build
+cd output/
+docker-compose up -d
+```
+
+You should not see any pipelines building, and you should see the changes you made to the JSON files show up.
+
+
+### Making changes to the config-repo:
 
 If you need to update the config-repo, then you can just edit the JSON/YAML files in the config-repo directory. However, next time someone checks out the trial, the pipelines will build. So, it's ideal to follow this method:
 
