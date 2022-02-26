@@ -7,6 +7,7 @@ if File.basename($PROGRAM_NAME) != 'rake'
 end
 
 require 'nokogiri'
+require 'tmpdir'
 
 BASE_PATH = File.expand_path(File.dirname "$0")
 
